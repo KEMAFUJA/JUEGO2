@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.webp" type="image/webp">
+    <title>MEMORIZ-ARTE</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="centered-container">
+    <h1 id="PRIMERO" class="shiny-title">MEMORIZANDO: Encuentra el camino</h1>
+    <img id="victoryImage" src="final.gif" alt="Victoria" style="display:none;" width="50%">
+    <button id="iniciar" class="curtain-button" data-label="EMPEZAR">EMPEZAR</button>
+  </div>
+  
+  
+  
+  <div id="card" class="card" style="display: none;">    
+    <h1 class="shiny-title">MEMORIZANDO: Encuentra el camino</h1>
+    <DIV id="informacion" style="color: aliceblue;"></DIV>
+    <button id="toggleMusic" class="curtain-button" data-label="PAUSAR MUSICA">PAUSAR MUSICA</button>
+    
+    <div class="dropdown">
+        <p class="dropdown-toggle" href="javascript:void(0);" style="color: azure;">¿De que trata el juego?</p>
+        <div class="content">
+          <ul>
+            <li><strong>EMPIEZAS EN UN NODO</strong>
+              <ul>
+                <li>Tienes que hallar el camino al nodo destino.</li>
+                <li>Si te quivocas se reinicia el juego, pero tus puntos se mantienen.</li>
+                <li>Si llegas al nodo final, pasas al siguiente nivel y ganas +20.</li>
+                <li>Solo debes dar click al nodo que creas que es el camino</li>
+                <li>Cada movimiento tiene un puntaje, si aciertas es +10, si no, es -5.</li>
+              </ul>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+
+    <div id="graph-container">
+        
+        <div id="graph">
+            <canvas id="canvas" width="600" height="400"></canvas>
+            <div class="node" id="L" onclick="move('L')">L</div>
+            <div class="node" id="K" onclick="move('K')">K</div>
+            <div class="node" id="J" onclick="move('J')">J</div>
+            <div class="node" id="I" onclick="move('I')">I</div>
+            <div class="node" id="H" onclick="move('H')">H</div>
+            <div class="node" id="G" onclick="move('G')">G</div>
+            <div class="node" id="F" onclick="move('F')">F</div>
+            <div class="node" id="E" onclick="move('E')">E</div>
+            <div class="node" id="D" onclick="move('D')">D</div>
+            <div class="node" id="C" onclick="move('C')">C</div>
+            <div class="node" id="B" onclick="move('B')">B</div>
+            <div class="node" id="A" onclick="move('A')">A</div>
+        </div>
+        
+      </div>
+    <div id="escogiste" style="color: aliceblue;"></div>
+    <div id="message" style="color: aliceblue;"></div>
+    
+    <div id="level" style="color: aliceblue;">Nivel: 1</div>
+    <div id="score" style="color: aliceblue;">Puntaje: 0</div>
+    
+    <p><strong style="color: aliceblue;">WhatsApp:</strong> <a href="https://api.whatsapp.com/send?phone=59171055268&text=Hola%20KVN%20soy%20" target="_blank">CONTÁCTATE CONMIGO</a></p>
+  </DIv>
+
+<audio id="victoryAudio" src="Lo fundamental La Hormiga.mp3" preload="auto"></audio>
+<audio id="backgroundMusic"></audio>
+<script src="juego2.js"></script>
+</body>
+</html>

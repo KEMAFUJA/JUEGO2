@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Música</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        #toggleMusic {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #toggleMusic:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <audio id="backgroundMusic"></audio>
+        <button id="toggleMusic">Reproducir Música</button>
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById('backgroundMusic');
+        const toggleButton = document.getElementById('toggleMusic');
+
+        // Lista de canciones
+        const playlist = [
+            'A.wav',  // Cambia a los nombres de tus archivos reales
+            'B.wav',
+            'C.wav',
+        ];
+
+        let currentTrackIndex = 0; // Índice de la canción actual
+
+        // Función para reproducir la canción actual
+        function playCurrentTrack() {
+            audioPlayer.src = playlist[currentTrackIndex];
+            audioPlayer.play();
+        }
+
+        // Evento cuando termina una canción
+        audioPlayer.addEventListener('ended', function() {
+            currentTrackIndex++; // Avanza al siguiente índice
+            if (currentTrackIndex < playlist.length) {
+                playCurrentTrack(); // Reproduce la siguiente canción
+            } else {
+                currentTrackIndex = 0; // Si se acaba la lista, reinicia
+                playCurrentTrack();
+            }
+        });
+
+        // Maneja el evento del botón para reproducir/pausar
+        toggleButton.addEventListener('click', function() {
+            if (audioPlayer.paused) {
+                playCurrentTrack(); // Reproduce la música
+                toggleButton.textContent = 'Pausar Música'; // Cambia el texto del botón
+            } else {
+                audioPlayer.pause(); // Pausa la música
+                toggleButton.textContent = 'Reproducir Música'; // Cambia el texto del botón
+            }
+        });
+    </script>
+</body>
+</html>
